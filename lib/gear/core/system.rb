@@ -3,7 +3,7 @@ module Gear::Core
   class System < EntityObserver
     attr_reader :active_entities, :aspect, :system_index
     attr_reader :all_set, :exclude_set, :one_set
-    attr_accessor :world, :passive
+    attr_accessor :gamebox, :passive
     attr_reader :dummy
 
     def initialize(aspect)
