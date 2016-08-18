@@ -91,5 +91,36 @@ module Gear::Core
         raise "#{obj.to_s} is neither a ComponentType object nor an Component subclass"
       end
     end
+
+        # Refresh all changes to components for this entity. After adding or
+    # removing components, you must call this method. It will update all
+    # relevant systems. It is typical to call this after adding components to a
+    # newly created entity.
+    def add_to_gamebox
+      @gamebox.add_entity self
+    end
+
+    # This entity has changed, a component added or deleted.
+    def change_in_gamebox
+      @gamebox.changed_entity self  
+    end
+
+    # Delete this entity from the gamebox.
+    def delete_from_gamebox
+      @gamebox.delete_entity self
+    end
+
+    # (Re)enable the entity in the gamebox, after it having being disabled.
+    # Won't do anything unless it was already disabled.
+    def enable
+      @gamebox.enable self
+    end
+
+    # Disable the entity from being processed. Won't delete it, it will
+    # continue to exist but won't get processed.
+    def disable
+      @gamebox.disable self
+    end
+
   end
 end
