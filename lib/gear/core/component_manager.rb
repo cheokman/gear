@@ -1,7 +1,7 @@
 module Gear::Core
   class ComponentManager < Manager
     def initialize
-      @componments_by_type = Bag.new
+      @components_by_type = Bag.new
       @deleted_entities = Bag.new
     end
 
