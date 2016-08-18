@@ -51,6 +51,17 @@ module Gear::Core
       raise "implement me in subclass" 
     end
 
+    # Called if the system has received a entity it is interested in, e.g. created or a component was added to it.
+    # @param e the entity that was added to this system.
+    #
+    def inserted(entity); end
+
+    # Called if a entity was removed from this system, e.g. deleted or had one of it's components removed.
+    #
+    # @param e the entity that was removed from this system.
+    def removed(entity); end
+
+
     def check(entity)
       return if @dummy
 
@@ -66,7 +77,7 @@ module Gear::Core
       # Then check if the entity possesses ANY of the components in the oneSet. If so, the system is interested.
       interested &&= @one_set.empty? || !(@one_set & component_class_indices).empty?
 
-      puts "check #{entity} #{entity.component_class_indices} against #{self} [all: #{@all_set}, exclude: #{@exclude_set}, one: #{@one_set}] => #{interested}" if @world.debug
+      puts "check #{entity} #{entity.component_class_indices} against #{self} [all: #{@all_set}, exclude: #{@exclude_set}, one: #{@one_set}] => #{interested}" if @gamebox.debug
 
       contains = entity.system_class_indices.include?(self.system_index)
       insert_to_system(entity) if interested && !contains
