@@ -9,6 +9,7 @@ require 'gear/core/entity_processing_system'
 
 require 'gear/core/component'
 require 'gear/core/component_type'
+require 'gear/core/component_mapper'
 require 'gear/core/component_manager'
 
 require 'gear/core/gamebox'
