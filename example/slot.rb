@@ -59,7 +59,7 @@ class RNGSysetm < Gear::Core::EntityProcessingSystem
     num_rng = rc.num_rng
     rc.rngs = []
     1.upto(num_rng) do |i|
-    rc.rngs << rand(6)
+      rc.rngs << rand(6)
     end
     puts "process #{entity.get_component(RandomComponent).rngs}"
   end
