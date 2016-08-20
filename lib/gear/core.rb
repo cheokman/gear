@@ -19,3 +19,4 @@ require 'gear/core/aspect'
 require 'gear/core/bag'
 
 require 'gear/core/tag_manager'
+require 'gear/core/group_manager'
